@@ -39,6 +39,21 @@ Během tohoto výstupu jsem se věnoval těmto věcem
         - Pohyb hráčů - zatím nelze ovládat
         - Pojídání jablíček
 
+## graf časové náročnosti
+
+Různými částmi výstupu jsem se věnoval takto dlouho
+
+| Aktivita                 | Strávený čas  |
+| ------------------------ | ------------- |
+| Příprava IDE             | 1h            |
+| C++                      | 17h30min      |
+| - Zprovoznění na Windows | 2h            |
+| - Zprovoznění na Linux   | 30min         |
+| - Seznámení              | 15h           |
+| Začátek Snaka            | 5h            |
+|                          |               |
+| Celkem                   | 23h30min      |
+
 ---
 Repository contents:
 - [Base Snake for 2 players implemented in C++](https://github.com/ur-fault/ArcadeTable/tree/master/SnakeCpp). Just reference to look at when writing it for Arduino later
