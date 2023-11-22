@@ -39,7 +39,7 @@ Během tohoto výstupu jsem se věnoval těmto věcem
         - Pohyb hráčů - zatím nelze ovládat
         - Pojídání jablíček
 
-## graf časové náročnosti
+## časová náročnost
 
 Různými částmi výstupu jsem se věnoval takto dlouho
 
