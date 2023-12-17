@@ -1,0 +1,13 @@
+[
+    {
+        "directory": "/mnt/c/Users/minef/dev/Arduino/_to_school/ArcadeTable/SnakeCpp",
+        "arguments": [
+            "/usr/bin/g++",
+            "-std=c++17",
+            "-lncurses",
+            "-o", "snake",
+            "main.cpp"
+        ],
+        "file": "main.cpp"
+    }
+]

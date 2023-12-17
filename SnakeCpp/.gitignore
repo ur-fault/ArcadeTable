@@ -1,2 +1,4 @@
 snake
 main
+*.o
+Session.vim
