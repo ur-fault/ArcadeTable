@@ -1,43 +1,14 @@
 # ArcadeTable
 Arcade table source code for school projet
 
-## 1. výstup
+## 2. výstup
+Během tohoto výstupu jsem dodělával Snaka v C++ běžícího na Linuxu v terminálu, zmeníl jsem vykreslování z jednoduchého `std:cout` na používání knihonvny curses.h, která se často používá na vytvýření TUI aplikací na Unixových platformách. Díky této knihovně mohou vývojáři upravovat plochu terminálu s mnohem větší kontrolou a efektivitou, rychlostí a jednoduchostí než manuálně. Dále se tato knihovna stará o zajištění vstupu od uživatele, takže Snake už jde ovládat a tím pádem i hrát. V poslední řadě jsem dodělal všechny herní mechaniky.
 
-Během tohoto výstupu jsem se věnoval těmto věcem
-1. Příprava IDE a vývojového prostředí na vývoj pro [Arduino](https://www.arduino.cc/)
-    - Instalace VS Code, konfigurace a instalace extensionů
-        - Arduino
-        - Vim emulace
-        - Zprovoznění debugování a komunikace s Arduinem
-2. Seznámení se s [C++](https://en.wikipedia.org/wiki/C%2B%2B)
-    - Základní jazykové útvary
-        - Podmínky
-        - Cykly
-        - Proměnné a datové typy
-        - Funkce a metody
-    - H/CPP a jejich rozdíly
-        - Headers soubory (.h) - soubory obsahující deklarace různých prvků kódu, jako např.
-            - Funkce
-            - Třídy
-            - Struktury
-        - CPP soubory (.cpp) - soubory obsahující skutečný kód, tedy definice těchto funkcí a metod
-        - Definice a deklarace jsou rozdělené z historických důvodů, dříve měli kompilátory málo paměti a četli kód ze zhora dolů
-    - Třídy a struktury
-        - Syntaxe
-        - Rozdíly
-        - Používání operátoru `new`
-        - Jejich rozdíly
-    - Spouštění kódu
-        - Po mnoha pokuses ho spouštím ve [WSL](https://learn.microsoft.com/en-us/windows/wsl/) (Windows Subsystem for Linux), což je funkce Windows 10 a novější, díky které  můžu využívat optimalizované distribude Linuxu přímo přes Windows a s velikou integrací do systému
-            - VS Code také běží ve WSL, ale grafické rozhraní je pomocí tunelu ve Windows 
-        - Kompilátor G++ od GNU Project
-        - Spouštím přímo v terminálu a nevyužívám prozatím ladící nástroje VS Code
-3. Počátek práce na hře Snake v terminálu implementovaná v C++
-    - Hra je ve složce [/SnakeCpp](https://github.com/ur-fault/ArcadeTable/tree/vystup-1/SnakeCpp)
-    - Prozatím umí tyto věci
-        - Vykreslění stavu do konzolce
-        - Pohyb hráčů - zatím nelze ovládat
-        - Pojídání jablíček
+V tomto stavu je to plně hratelná hra Snake pro dva hráče, ale kvůli závislosti na knihovně curses.h podporuje jen Unixové systémy, tedy hlavně Linux a MacOS.
+
+## obrázky
+![arcade_table_snake_screenshot](https://github.com/ur-fault/ArcadeTable/assets/42314964/5c065aff-fd6c-4e49-98ea-c0fc5c73d3f9)
+![arcade_table_snake_preview](https://github.com/ur-fault/ArcadeTable/assets/42314964/9ebaa3ce-b37b-4cdd-8a18-678333d44583)
 
 ## časová náročnost
 
@@ -45,12 +16,7 @@ Různými částmi výstupu jsem se věnoval takto dlouho
 
 | Aktivita                 | Strávený čas  |
 | ------------------------ | ------------- |
-| Příprava IDE             | 1h            |
-| C++                      | 17h30min      |
-| - Zprovoznění na Windows | 2h            |
-| - Zprovoznění na Linux   | 30min         |
-| - Seznámení              | 15h           |
-| Začátek Snaka            | 5h            |
+| ...                      | ...           |
 |                          |               |
 | Celkem                   | 23h30min      |
 
