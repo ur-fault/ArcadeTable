@@ -18,7 +18,7 @@ Různými částmi výstupu jsem se věnoval takto dlouho
 | ------------------------ | ------------- |
 | ...                      | ...           |
 |                          |               |
-| Celkem                   | 23h30min      |
+| Celkem                   | ...           |
 
 ---
 Repository contents:
