@@ -1,58 +1,38 @@
 # ArcadeTable
 Arcade table source code for school projet
 
-## 1. výstup
+## 3. výstup
 
-Během tohoto výstupu jsem se věnoval těmto věcem
-1. Příprava IDE a vývojového prostředí na vývoj pro [Arduino](https://www.arduino.cc/)
-    - Instalace VS Code, konfigurace a instalace extensionů
-        - Arduino
-        - Vim emulace
-        - Zprovoznění debugování a komunikace s Arduinem
-2. Seznámení se s [C++](https://en.wikipedia.org/wiki/C%2B%2B)
-    - Základní jazykové útvary
-        - Podmínky
-        - Cykly
-        - Proměnné a datové typy
-        - Funkce a metody
-    - H/CPP a jejich rozdíly
-        - Headers soubory (.h) - soubory obsahující deklarace různých prvků kódu, jako např.
-            - Funkce
-            - Třídy
-            - Struktury
-        - CPP soubory (.cpp) - soubory obsahující skutečný kód, tedy definice těchto funkcí a metod
-        - Definice a deklarace jsou rozdělené z historických důvodů, dříve měli kompilátory málo paměti a četli kód ze zhora dolů
-    - Třídy a struktury
-        - Syntaxe
-        - Rozdíly
-        - Používání operátoru `new`
-        - Jejich rozdíly
-    - Spouštění kódu
-        - Po mnoha pokuses ho spouštím ve [WSL](https://learn.microsoft.com/en-us/windows/wsl/) (Windows Subsystem for Linux), což je funkce Windows 10 a novější, díky které  můžu využívat optimalizované distribude Linuxu přímo přes Windows a s velikou integrací do systému
-            - VS Code také běží ve WSL, ale grafické rozhraní je pomocí tunelu ve Windows 
-        - Kompilátor G++ od GNU Project
-        - Spouštím přímo v terminálu a nevyužívám prozatím ladící nástroje VS Code
-3. Počátek práce na hře Snake v terminálu implementovaná v C++
-    - Hra je ve složce [/SnakeCpp](https://github.com/ur-fault/ArcadeTable/tree/vystup-1/SnakeCpp)
-    - Prozatím umí tyto věci
-        - Vykreslění stavu do konzolce
-        - Pohyb hráčů - zatím nelze ovládat
-        - Pojídání jablíček
+V tomto výstupu jsem už dělal kód pro Arduino, zatím ne celou hru, nicměne nějakou abstrakci nad komponentami, jako obrazovka nebo ovládání.
+
+Vytvořil jsem základní tři třídy na ovládání
+- `Table` - celkový management komponent a jejich inicializace (`.setup()`)
+- `Screen` - ovládaní obrazovky, věci jako
+    - `.fill()` - vyplní obrazovku (všechny pixely) jednou barvou
+    - `.setPixel()` - nastaví jeden pixel na barvu
+    - `.getPixelIndex()` - převede z koordinátu `x` a `y` na index `0-99`
+    - `.show()` - pošle screen buffer LEDkám
+- `Controls` - ovládání hráčů, každý má svůj
+    - `.isPressed()` - je switch hráče zmáčknut
+    - `.getJoystick()` - vrací hodnoty `-1`, `0` a `1` pro obě osy, vrátí nenulovou hodnotu jen jednou za sebou, poté hráč musí zase nastavit neutrální pozici, než bude znovu registrována tato poloha. Okolo středu je tzv. dead zone 40%, která je registrovaná jako neutrální poloha
+
 
 ## časová náročnost
 
 Různými částmi výstupu jsem se věnoval takto dlouho
 
-| Aktivita                 | Strávený čas  |
-| ------------------------ | ------------- |
-| Příprava IDE             | 1h            |
-| C++                      | 17h30min      |
-| - Zprovoznění na Windows | 2h            |
-| - Zprovoznění na Linux   | 30min         |
-| - Seznámení              | 15h           |
-| Začátek Snaka            | 5h            |
-|                          |               |
-| Celkem                   | 23h30min      |
+| Aktivita                  | Strávený čas  |
+| ------------------------- | ------------- |
+| Příprava IDE (na Arduino) | 4.5h          |
+| Arduino C++               | 3.5h          |
+| - Seznámení               | 2h            |
+| - Několik souborů         | 2h            |
+| Abstrakce                 | 6.5h          |
+| - Knihovny                | 2h            |
+| - Screen                  | 3.5h          |
+| - Controls                | 2h            |
+| - Bootstrap               | 1h            |
+| Celkem                    | 23h30min      |
 
 ---
 Repository contents:
