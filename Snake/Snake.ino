@@ -1,5 +1,5 @@
 #include <Adafruit_NeoPixel.h>
-#include <microTuple.h>
+#include <MicroTuple.h>
 
 #define SCREEN_WIDTH (10)
 #define SCREEN_HEIGHT (10)
