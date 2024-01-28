@@ -104,8 +104,8 @@ class Game {
         this->width = width;
         this->height = height;
         p1 = new Snake(0, 0);
-        // p2 = new Snake(width - 1, height - 1);
-        p2 = new Snake(width - 1, 0);
+        p2 = new Snake(width - 1, height - 1);
+        // p2 = new Snake(width - 1, 0);
 
         auto food = get_random_food();
         foodX = get_x(food);
