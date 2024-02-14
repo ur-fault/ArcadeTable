@@ -33,7 +33,7 @@ Různými částmi výstupu jsem se věnoval takto dlouho
 | - Controls                | 2h            |
 | - Bootstrap               | 1h            |
 | Pájení                    | 3h            |
-| Celkem                    | 26h30min      |
+| Celkem                    | 18h30min      |
 
 ---
 Repository contents:
