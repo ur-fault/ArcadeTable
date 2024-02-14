@@ -37,8 +37,8 @@ Různými částmi výstupu jsem se věnoval takto dlouho
 ---
 Repository contents:
 - [Base Snake for 2 players implemented in C++](https://github.com/ur-fault/ArcadeTable/tree/master/SnakeCpp). Just reference to look at when writing it for Arduino later
+- [Snake for Arduino and framework for ArcadeTable](https://github.com/ur-fault/ArcadeTable/tree/vystup-3/Snake)
 
 Not existing yet:
-- Universal smoething of a framework for controlling LED RGB Matrix and handling user input on Arcade Table
 - Snake for Arcade Table
 - "Dáma" for Arcade Table
