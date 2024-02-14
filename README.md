@@ -24,16 +24,16 @@ Různými částmi výstupu jsem se věnoval takto dlouho
 | Aktivita                  | Strávený čas  |
 | ------------------------- | ------------- |
 | Příprava IDE (na Arduino) | 4.5h          |
-| Arduino C++               | 3.5h          |
+| Arduino C++               | 3h            |
 | - Seznámení               | 2h            |
-| - Několik souborů         | 2h            |
-| Abstrakce                 | 6.5h          |
+| - Několik souborů         | 1h            |
+| Abstrakce                 | 8.5h          |
 | - Knihovny                | 2h            |
 | - Screen                  | 3.5h          |
 | - Controls                | 2h            |
 | - Bootstrap               | 1h            |
 | Pájení                    | 3h            |
-| Celkem                    | 18h30min      |
+| Celkem                    | 19h30min      |
 
 ---
 Repository contents:
