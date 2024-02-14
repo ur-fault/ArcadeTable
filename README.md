@@ -32,7 +32,8 @@ Různými částmi výstupu jsem se věnoval takto dlouho
 | - Screen                  | 3.5h          |
 | - Controls                | 2h            |
 | - Bootstrap               | 1h            |
-| Celkem                    | 23h30min      |
+| Pájení                    | 3h            |
+| Celkem                    | 26h30min      |
 
 ---
 Repository contents:
