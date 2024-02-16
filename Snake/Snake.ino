@@ -14,7 +14,7 @@ typedef uint32_t color_t;
 typedef MicroTuple<int, int, int> Color;
 typedef MicroTuple<int, int> Point;
 
-color_t color(int r, int g, int b) { return Adafruit_NeoPixel::Color(r, g, b); }
+color_t color(int r, int g, int b) { return Adafruit_NeoPixel::Color(g, r, b); }
 
 color_t color(Color color) {
     return Adafruit_NeoPixel::Color(color.first, color.rest.first,
@@ -30,7 +30,7 @@ class Screen {
         this->pin = pin;
     }
 
-    void setup() { pinMode(pin, OUTPUT); }
+    void setup() { pixels.begin(); }
 
     /// Sets the color of the pixel at (x, y) to the given color.
     void setPixel(int x, int y, color_t clr) {
@@ -55,7 +55,7 @@ class Screen {
 
     void fill(Color clr) { fill(color(clr)); }
 
-    void fill(color_t clr, Point start, Point end) {
+    void fill_rect(color_t clr, Point start, Point end) {
         for (int x = start.first; x <= end.first; x++) {
             for (int y = start.rest.first; y <= end.rest.first; y++) {
                 setPixel(x, y, clr);
@@ -64,6 +64,8 @@ class Screen {
     }
 
     void show() { pixels.show(); }
+
+    void clear() { pixels.show(); }
 
     /// Gets index of pixel at (x, y) in the 1D array of pixels.
     /// Returns -1 if the pixel is out of bounds.
