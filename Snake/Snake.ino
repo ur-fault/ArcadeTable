@@ -12,7 +12,20 @@ typedef uint16_t ledidx_t;
 typedef uint32_t color_t;
 
 typedef MicroTuple<int, int, int> Color;
-typedef MicroTuple<int, int> Point;
+// typedef MicroTuple<int, int> Point;
+struct Point {
+    int x, y;
+
+    Point() : Point(0, 0) {}
+
+    Point(int x, int y) : x(x), y(y) {}
+
+    Point operator+(Point b) { return Point(x + b.x, y + b.y); }
+
+    Point operator-(Point b) { return Point(x - b.x, y - b.y); }
+
+    bool operator==(Point b) { return x == b.x && y == b.y; }
+};
 
 color_t color(int r, int g, int b) { return Adafruit_NeoPixel::Color(g, r, b); }
 
@@ -41,23 +54,19 @@ class Screen {
     }
 
     /// Sets the color of the pixel at (x, y) to the given color.
-    void setPixel(Point pos, color_t clr) {
-        setPixel(pos.first, pos.rest.first, clr);
-    }
+    void setPixel(Point pos, color_t clr) { setPixel(pos.x, pos.y, clr); }
 
     void setPixel(int x, int y, Color clr) { setPixel(x, y, color(clr)); }
 
-    void setPixel(Point pos, Color clr) {
-        setPixel(pos.first, pos.rest.first, clr);
-    }
+    void setPixel(Point pos, Color clr) { setPixel(pos.x, pos.y, clr); }
 
     void fill(color_t clr) { pixels.fill(clr); }
 
     void fill(Color clr) { fill(color(clr)); }
 
     void fill_rect(color_t clr, Point start, Point end) {
-        for (int x = start.first; x <= end.first; x++) {
-            for (int y = start.rest.first; y <= end.rest.first; y++) {
+        for (int x = start.x; x <= end.x; x++) {
+            for (int y = start.y; y <= end.y; y++) {
                 setPixel(x, y, clr);
             }
         }
@@ -84,7 +93,7 @@ class Screen {
     }
 
     static ledidx_t getPixelIndex(Point pos) {
-        return getPixelIndex(pos.first, pos.rest.first);
+        return getPixelIndex(pos.x, pos.y);
     }
 
   private:
@@ -107,32 +116,32 @@ class Controls {
     /// Returns a tuple of states of directions of the joystick.
     /// The first element is the x direction, the second is the y direction.
     /// Values are either -1, 0, or 1.
-    MicroTuple<int, int> getJoystick() {
+    Point getJoystick() {
         int xVal = analogRead(x);
         int yVal = analogRead(y);
 
-        MicroTuple<int, int> pos(0, 0);
+        Point pos(0, 0);
 
         if (xVal > 512 + 512 * JOYSTICK_THRESHOLD) {
-            pos.first = 1;
+            pos.x = 1;
         } else if (xVal < 512 - 512 * JOYSTICK_THRESHOLD) {
-            pos.first = -1;
+            pos.x = -1;
         }
 
         // disable repeat
-        if (pos.first == joystickPrev.first) {
-            pos.first = 0;
+        if (pos.x == joystickPrev.x) {
+            pos.x = 0;
         }
 
         if (yVal > 512 + 512 * JOYSTICK_THRESHOLD) {
-            pos.rest.first = 1;
+            pos.y = 1;
         } else if (yVal < 512 - 512 * JOYSTICK_THRESHOLD) {
-            pos.rest.first = -1;
+            pos.y = -1;
         }
 
         // disable repeat
-        if (pos.rest.first == joystickPrev.rest.first) {
-            pos.rest.first = 0;
+        if (pos.y == joystickPrev.y) {
+            pos.y = 0;
         }
 
         joystickPrev = pos;
@@ -141,7 +150,7 @@ class Controls {
 
   private:
     port_t x, y, sw;
-    MicroTuple<int, int> joystickPrev;
+    Point joystickPrev;
 };
 
 class Table {

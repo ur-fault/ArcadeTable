@@ -2,7 +2,7 @@
 
 const int BOARD_SIZE = 10 * 10;
 
-typedef MicroTuple<int, int> Point;
+// typedef MicroTuple<int, int> Point;
 typedef unsigned long time_t;
 
 // digital pins
@@ -16,32 +16,7 @@ typedef unsigned long time_t;
 #define X2_PIN A1
 #define Y2_PIN A2
 
-// enum Direction { UP, DOWN, LEFT, RIGHT };
-
 Table table(SCREEN_PIN, X1_PIN, Y1_PIN, SW1_PIN, X2_PIN, Y2_PIN, SW2_PIN);
-
-// Point direction_offset(Direction direction) {
-//     switch (direction) {
-//     case UP:
-//         return Point(0, -1);
-//     case DOWN:
-//         return Point(0, 1);
-//     case LEFT:
-//         return Point(-1, 0);
-//     case RIGHT:
-//         return Point(1, 0);
-//     default:
-//         exit(1);
-//     }
-// }
-
-Point operator+(Point a, Point b) {
-    return Point(a.get<0>() + b.get<0>(), a.get<1>() + b.get<1>());
-}
-
-bool operator==(Point a, Point b) {
-    return a.get<0>() == b.get<0>() && a.get<1>() == b.get<1>();
-}
 
 struct GameState {
     Point dims;
@@ -80,7 +55,7 @@ class Snake {
   public:
     Snake(Point head) {
         body.push(head);
-        direction = head.get<0>() == 0 ? Point(1, 0) : Point(-1, 0);
+        direction = head.x == 0 ? Point(1, 0) : Point(-1, 0);
     }
 
     Snake(int x, int y) : Snake(Point(x, y)) {}
@@ -98,11 +73,11 @@ class Snake {
     bool is_dead(GameState &state, Snake &other) {
         auto head = get_head();
 
-        auto x = head.get<0>();
-        auto y = head.get<1>();
+        auto x = head.x;
+        auto y = head.y;
 
-        auto width = state.dims.get<0>();
-        auto height = state.dims.get<1>();
+        auto width = state.dims.x;
+        auto height = state.dims.y;
 
         if (x < 0 || x >= width || y < 0 || y >= height ||
             body_contains(x, y) || other.snake_contains(x, y)) {
@@ -165,7 +140,7 @@ class Game {
     }
 
     Point get_random_food() {
-        return Point(random(dims.get<0>()), random(dims.get<1>()));
+        return Point(random(dims.x), random(dims.y));
     }
 
     Point get_food() { return food; }
@@ -179,8 +154,8 @@ class Game {
 
     int update(bool move) {
         auto j1 = table.controls1.getJoystick();
-        auto x1 = j1.get<0>();
-        auto y1 = j1.get<1>();
+        auto x1 = j1.x;
+        auto y1 = j1.y;
         if (x1 < 0)
             this->p1->set_direction(Point(-1, 0));
         else if (x1 > 0)
@@ -191,8 +166,8 @@ class Game {
             this->p1->set_direction(Point(0, 1));
 
         auto j2 = table.controls2.getJoystick();
-        auto x2 = j1.get<0>();
-        auto y2 = j1.get<1>();
+        auto x2 = j1.x;
+        auto y2 = j1.y;
         if (x2 < 0)
             this->p2->set_direction(Point(-1, 0));
         else if (x2 > 0)
@@ -250,7 +225,7 @@ class Game {
                 } else if (p2->snake_contains(x, y)) {
                     // screen.fill_rect(color(0, 0, 255), Point(x * 10, y * 10), Point(10, 10));
                     screen.setPixel(x, y, color(0, 0, 128));
-                } else if (x == food.get<0>() && y == food.get<1>()) {
+                } else if (x == food.x && y == food.y) {
                     // screen.fill_rect(color(0, 255, 0), Point(x * 10, y * 10), Point(10, 10));
                     screen.setPixel(x, y, color(0, 255, 0));
                 }
@@ -307,7 +282,4 @@ void setup() {
 void loop() {
     Game game(Point(10, 10), 300);
     game.run(table);
-    // table.screen.clear();
-    // table.screen.fill(color(255, 0, 0));
-    // table.screen.show();
 }
