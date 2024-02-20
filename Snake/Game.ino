@@ -13,8 +13,8 @@ typedef unsigned long time_t;
 // analog pins
 #define X1_PIN A0
 #define Y1_PIN A1
-#define X2_PIN A1
-#define Y2_PIN A2
+#define X2_PIN A2
+#define Y2_PIN A3
 
 Table table(SCREEN_PIN, X1_PIN, Y1_PIN, SW1_PIN, X2_PIN, Y2_PIN, SW2_PIN);
 
@@ -166,8 +166,8 @@ class Game {
             this->p1->set_direction(Point(0, 1));
 
         auto j2 = table.controls2.getJoystick();
-        auto x2 = j1.x;
-        auto y2 = j1.y;
+        auto x2 = j2.x;
+        auto y2 = j2.y;
         if (x2 < 0)
             this->p2->set_direction(Point(-1, 0));
         else if (x2 > 0)
@@ -208,7 +208,6 @@ class Game {
 
     void draw(Screen &screen) {
         screen.clear();
-
         screen.fill(color(0, 0, 0));
 
         for (auto y = 0; y < SCREEN_HEIGHT; y++) {
@@ -257,7 +256,7 @@ class Game {
         table.screen.clear();
         table.screen.fill(color(0, 0, 0));
 
-        color_t clr = winner ? color(255, 0, 0) : color(0, 0, 255);
+        color_t clr = winner ? color(0, 0, 255) : color(255, 0, 0);
         table.screen.fill_rect(clr, Point(0, 0), Point(SCREEN_WIDTH, SCREEN_HEIGHT));
 
         table.screen.show();

@@ -5,7 +5,7 @@
 #define SCREEN_HEIGHT (10)
 #define SCREEN_SIZE (SCREEN_WIDTH * SCREEN_HEIGHT)
 
-#define JOYSTICK_THRESHOLD 0.2
+#define JOYSTICK_THRESHOLD 0.5
 
 typedef uint8_t port_t;
 typedef uint16_t ledidx_t;
@@ -74,7 +74,7 @@ class Screen {
 
     void show() { pixels.show(); }
 
-    void clear() { pixels.show(); }
+    void clear() { pixels.clear(); }
 
     /// Gets index of pixel at (x, y) in the 1D array of pixels.
     /// Returns -1 if the pixel is out of bounds.
@@ -109,7 +109,7 @@ class Controls {
         this->sw = sw;
     }
 
-    void setup() { pinMode(sw, INPUT); }
+    void setup() { pinMode(sw, INPUT_PULLUP); }
 
     bool isPressed() { return digitalRead(sw) == HIGH; }
 
@@ -128,10 +128,10 @@ class Controls {
             pos.x = -1;
         }
 
-        // disable repeat
-        if (pos.x == joystickPrev.x) {
-            pos.x = 0;
-        }
+        // // disable repeat
+        // if (pos.x == joystickPrev.x) {
+        //     pos.x = 0;
+        // }
 
         if (yVal > 512 + 512 * JOYSTICK_THRESHOLD) {
             pos.y = 1;
@@ -139,10 +139,13 @@ class Controls {
             pos.y = -1;
         }
 
-        // disable repeat
-        if (pos.y == joystickPrev.y) {
-            pos.y = 0;
-        }
+        // // disable repeat
+        // if (pos.y == joystickPrev.y) {
+        //     pos.y = 0;
+        // }
+
+        if (pos == joystickPrev)
+            pos = Point(0, 0);
 
         joystickPrev = pos;
         return pos;
