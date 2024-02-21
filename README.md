@@ -3,7 +3,7 @@ Arcade table source code for school projet
 
 ## 4. výstup
 
-Během tohoto výstupu jsem dodělával Snake hru pro Arduino a Dámu pro počítač.
+Během tohoto výstupu jsem dodělával Snake hru pro Arduino a Dámu pro počítač. Také jsem udělal testovací kód, pomocí kterého můžeme testovat, že všechen hardware funguje správně.
 
 Snake pro Arduino
 - Vzal jsem abstrakci nad naším stolem a spojil ji dohromady s verzí pro počítač
@@ -14,8 +14,28 @@ Snake pro Arduino
   - Renderování
   - Input
   - Typos a prohozené piny
+  - Debug session přes chat
+
+Dáma pro PC
+
+Testovací program
+
+Využívá stejný framework kód jako Snake a v budoucnu dáma. Testuje jak input (switche a joysticky), tak i output (obrazovku).
+- Pixely najednou a jejich barvy
+  - Bílou
+  - Červenou
+  - Zelenou
+  - Modrou
+- Indexování pixelů
+  - Index
+  - Souřadnice
+- Switche - oba hráči
+- Joystick - oba hráčí
+
 
 ## časová náročnost
+
+### (neni hotova)
 
 Různými částmi výstupu jsem se věnoval takto dlouho
 
