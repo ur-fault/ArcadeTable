@@ -16,8 +16,6 @@ Snake pro Arduino
   - Typos a prohozené piny
   - Debug session přes chat
 
-Dáma pro PC
-
 Testovací program
 
 Využívá stejný framework kód jako Snake a v budoucnu dáma. Testuje jak input (switche a joysticky), tak i output (obrazovku).
@@ -35,26 +33,22 @@ Využívá stejný framework kód jako Snake a v budoucnu dáma. Testuje jak inp
 
 ## časová náročnost
 
-### (neni hotova)
-
 Různými částmi výstupu jsem se věnoval takto dlouho
 
 | Aktivita                 | Strávený čas  |
 | ------------------------ | ------------- |
-| Příprava IDE             | 1h            |
-| C++                      | 17h30min      |
-| - Zprovoznění na Windows | 2h            |
-| - Zprovoznění na Linux   | 30min         |
-| - Seznámení              | 15h           |
-| Začátek Snaka            | 5h            |
+| **Portovat PC verzi**    | **19h 30m**   |
+| - Kompatibilita          | 4h 30m        |
+| - Optimalizace           | 3h 30m        |
+| - STD přepis             | 3h            |
+| - debugging              | 8h 30m        |
+| **Testovací program**    | **4h 30m**    |
+| - Základ                 | 1h            |
+| - Display                | 1h 30m        |
+| - Input                  | 2h            |
 |                          |               |
-| Celkem                   | 23h30min      |
+| Celkem                   | 24h           |
 
 ---
 Repository contents:
-- [Base Snake for 2 players implemented in C++](https://github.com/ur-fault/ArcadeTable/tree/master/SnakeCpp). Just reference to look at when writing it for Arduino later
-
-Not existing yet:
-- Universal smoething of a framework for controlling LED RGB Matrix and handling user input on Arcade Table
-- Snake for Arcade Table
-- "Dáma" for Arcade Table
+- [Snake pro Arcade stul](https://github.com/ur-fault/ArcadeTable/tree/vystup-4/Snake). Implementovaný Snake pro Arcade table
