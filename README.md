@@ -16,9 +16,12 @@ Různými částmi výstupu jsem se věnoval takto dlouho
 
 | Aktivita                 | Strávený čas  |
 | ------------------------ | ------------- |
-| ...                      | ...           |
-|                          |               |
-| Celkem                   | ...           |
+| Snake                    | ...           |
+| - ncurses.h              | 6h            |
+| - ovládání               | 3h 30min      |
+| - Ostatní mechaniky      | 3h            |
+| - Debugging              | 4h            |
+| Celkem                   | 16h 30min     |
 
 ---
 Repository contents:
@@ -28,3 +31,5 @@ Not existing yet:
 - Universal smoething of a framework for controlling LED RGB Matrix and handling user input on Arcade Table
 - Snake for Arcade Table
 - "Dáma" for Arcade Table
+
+| Snake                      | ...           |
