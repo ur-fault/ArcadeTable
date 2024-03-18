@@ -128,24 +128,16 @@ class Controls {
             pos.x = -1;
         }
 
-        // // disable repeat
-        // if (pos.x == joystickPrev.x) {
-        //     pos.x = 0;
-        // }
-
         if (yVal > 512 + 512 * JOYSTICK_THRESHOLD) {
             pos.y = 1;
         } else if (yVal < 512 - 512 * JOYSTICK_THRESHOLD) {
             pos.y = -1;
         }
 
-        // // disable repeat
-        // if (pos.y == joystickPrev.y) {
-        //     pos.y = 0;
-        // }
-
         if (pos == joystickPrev)
             pos = Point(0, 0);
+
+        Serial.println("Joystick: %d:%d", pos.x, pos.y);
 
         joystickPrev = pos;
         return pos;

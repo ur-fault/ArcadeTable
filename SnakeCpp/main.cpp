@@ -255,7 +255,7 @@ class Game {
 };
 
 int main() {
-    // init screan
+    // init screen
     initscr();
     cbreak();
     noecho();
